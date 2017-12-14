@@ -1,0 +1,10 @@
+<div *ngIf="auth.isAuthenticated()">
+  
+  <app-cars></app-cars>
+  
+</div>
+<div style="text-align: center">
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()" style="color:rgb(98, 178, 253)">Log In</a> to continue.
+</h4>
+</div>

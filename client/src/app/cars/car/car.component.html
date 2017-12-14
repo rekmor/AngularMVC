@@ -1,0 +1,35 @@
+<form class="emp-form" #carForm="ngForm" (ngSubmit)="onSubmit(carForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="carService.selectedCar.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="carService.selectedCar.name"
+        placeholder="Car Make" required>
+      <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="model" #model="ngModel" [(ngModel)]="carService.selectedCar.model" placeholder="Model"
+        required>
+      <div class="validation-error" *ngIf="model.invalid && model.touched">This Field is Required.</div>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="year" #year="ngModel" [(ngModel)]="carService.selectedCar.year" placeholder="Year">
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="price" #price="ngModel" [(ngModel)]="carService.selectedCar.price" placeholder="Price">
+    </div>
+   
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!carForm.valid" type="submit"  style="background: rgb(57, 174, 252)" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block"  (click)="resetForm(carForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,28 @@
+<table class="table ">
+
+    <tr style="color: rgb(255, 255, 255); background: rgb(82, 166, 245); font-weight: bold;">
+        <td >Car Make</td>
+        <td >Model</td>
+        <td>Year</td>
+        <td>Price</td>
+        <td style=" text-align:center; background: rgb(104, 252, 116) ">Edit</td>
+        <td style="text-align:center; background: rgb(245, 82, 82)">Delete</td>
+        
+    </tr>
+  <tr  style="color: rgba(0, 0, 0, 0.418)" *ngFor="let car of carService.carList">
+    <td>{{car.name}} </td>
+   <td>{{car.model}}</td>
+    <td>{{car.year}}</td>
+    <td>{{car.price}}</td>
+    <td style="text-align:center; color: rgb(104, 252, 116)">
+      <a class="btn" (click)="showForEdit(car)">
+        <i class="fa fa-car"></i>
+      </a>
+      </td>
+      <td style="text-align:center;">
+      <a class="btn text-danger" (click)="onDelete(car.id)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>
